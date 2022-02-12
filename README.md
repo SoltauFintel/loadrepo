@@ -1,6 +1,6 @@
 # Go package "loadrepo"
 
-Mit der LoadRepo function kann man ein Git Repo clonen bzw. pullen.
+Use the LoadRepo functions to clone or pull a Git repository. This is my first golang package on Github.
 
 **install package**
 
