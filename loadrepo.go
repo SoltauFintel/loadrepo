@@ -43,3 +43,16 @@ func LoadRepo(dir string, url string, user string, pass string) (int, error) {
 		}
 	}
 }
+
+// Clones or pulls a Git repository.
+// (no user and password arguments)
+// dir: workspace folder
+// url: Git repository URL
+// return value:
+// 0: pull ok, no changes
+// 1: pull ok, with changes
+// 2: clone ok
+// <0: error
+func LoadPublicRepo(dir string, url string) (int, error) {
+	return LoadRepo(dir, url, "", "")
+}
