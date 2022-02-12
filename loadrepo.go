@@ -6,16 +6,23 @@ import (
 	"github.com/go-git/go-git/v5/plumbing/transport/http"
 )
 
+// Clones or pulls a Git repository.
+// dir: workspace folder
+// url: Git repository URL
+// user: Git user login
+// pass: Git user password
+// return value:
+// 0: pull ok, no changes
+// 1: pull ok, with changes
+// 2: clone ok
+// <0: error
 func LoadRepo(dir string, url string, user string, pass string) (int, error) {
 	auth := http.BasicAuth{
 		Username: user,
 		Password: pass,
 	}
 	if _, err := os.Stat(dir); os.IsNotExist(err) {  // folder not exists?
-		_, err := git.PlainClone(dir, false, &git.CloneOptions{
-			URL: url,
-			Auth: &auth,
-		})
+		_, err := git.PlainClone(dir, false, &git.CloneOptions{URL: url, Auth: &auth})
 		if err != nil {
 			return -2, err
 		} else {
