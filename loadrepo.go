@@ -6,7 +6,7 @@ import (
 	"github.com/go-git/go-git/v5/plumbing/transport/http"
 )
 
-func loadRepo(dir string, url string, user string, pass string) (int, error) {
+func LoadRepo(dir string, url string, user string, pass string) (int, error) {
 	auth := http.BasicAuth{
 		Username: user,
 		Password: pass,
